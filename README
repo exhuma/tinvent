@@ -7,3 +7,11 @@ LICENSE
 ==========================
 
 LGPL
+
+SETUP
+==========================
+
+1. run "install.sh"
+2. verify "tinvent/development.ini" AND "migrate_repo/migrate.py" for database connection
+3. in the folder "tinvent" run "python setup.py develop"
+4. run "paster serve development.ini" to start the server
