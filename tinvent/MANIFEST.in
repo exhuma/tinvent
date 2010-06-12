@@ -1,0 +1,4 @@
+recursive-include tinvent/public *
+include tinvent/public/favicon.ico
+recursive-include tinvent/i18n *
+recursive-include tinvent/templates *
