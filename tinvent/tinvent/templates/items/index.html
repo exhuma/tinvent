@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="../master.html" />
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+  <title>tinvent - Your Items</title>
+</head>
+
+<body>
+
+   <div id="Categories">
+      <label py:for="category in categories"><input type="checkbox" />${category.label}</label>
+   </div>
+
+   <h1>Your Items</h1>
+   <div class="item" py:for='item in user.all_items'>
+      <img src="${tg.url('/images/info.png')}" width="64" height="64" />
+      ${item.label} -- <span py:if="item.owner_id==user.user_id">owned</span>
+      -- <span py:if="item.holder_id==user.user_id">in posession</span>
+   </div>
+   <br />
+   <a href="/items/add">Add new Item</a>
+
+</body>
+</html>

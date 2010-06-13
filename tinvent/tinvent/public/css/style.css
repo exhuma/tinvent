@@ -301,3 +301,8 @@ font-weight:bold;
 div.clearingdiv {
 clear:both;
 }
+
+div.item {
+   border:1px solid black;
+   padding:1em;
+}

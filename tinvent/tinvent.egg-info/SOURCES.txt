@@ -50,16 +50,11 @@ tinvent/public/images/strype2.png
 tinvent/public/images/under_the_hood_blue.png
 tinvent/public/images/warning.png
 tinvent/templates/__init__.py
-tinvent/templates/about.html
-tinvent/templates/authentication.html
 tinvent/templates/debug.html
 tinvent/templates/error.html
-tinvent/templates/footer.html
-tinvent/templates/header.html
 tinvent/templates/index.html
 tinvent/templates/login.html
 tinvent/templates/master.html
-tinvent/templates/sidebars.html
 tinvent/tests/__init__.py
 tinvent/tests/functional/__init__.py
 tinvent/tests/functional/test_authentication.py

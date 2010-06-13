@@ -60,3 +60,4 @@ def init_model(engine):
 
 # Import your model modules here.
 from tinvent.model.auth import User, Group, Permission
+from tinvent.model.all import Category, Contact, Picture, Item

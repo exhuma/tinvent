@@ -11,6 +11,7 @@ from tinvent.model import DBSession, metadata
 from tinvent.controllers.error import ErrorController
 from tinvent import model
 from tinvent.controllers.secure import SecureController
+from tinvent.controllers.items import ItemsController
 
 __all__ = ['RootController']
 
@@ -34,6 +35,8 @@ class RootController(BaseController):
     admin = Catwalk(model, DBSession)
     
     error = ErrorController()
+
+    items = ItemsController()
 
     @expose('tinvent.templates.index')
     def index(self):
