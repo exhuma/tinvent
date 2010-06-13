@@ -16,7 +16,7 @@ error_email_from = paste@localhost
 
 [server:main]
 use = egg:Paste#http
-host = 192.168.1.1
+host = 0.0.0.0
 port = 8080
 
 [app:main]
@@ -44,7 +44,7 @@ beaker.session.secret = somesecret
 # in development
 
 #sqlalchemy.url = sqlite:///%(here)s/devdata.db
-sqlalchemy.url = postgresql://devtest:test123@localhost/tinvent
+sqlalchemy.url = postgres://devtest:test123@localhost:5433/tinvent
 #echo shouldn't be used together with the logging module.
 sqlalchemy.echo = false
 sqlalchemy.echo_pool = false
