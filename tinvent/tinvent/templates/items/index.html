@@ -13,18 +13,29 @@
 
 <body>
 
-   <div id="Categories">
-      <label py:for="category in categories"><input type="checkbox" />${category.label}</label>
+   <div id="ItemListFilters">
+      <fieldset id="CategoryFilter">
+         <legend>Categories</legend>
+         <label py:for="category in categories"><input type="checkbox" />${category.label}<br /></label>
+      </fieldset>
+
+      <fieldset id="StatusFilter">
+         <legend>Status</legend>
+         <label><input type="checkbox" name="status" value="owned" />Owned</label><br />
+         <label><input type="checkbox" name="status" value="in_possession" />In Possession</label>
+      </fieldset>
    </div>
 
-   <h1>Your Items</h1>
-   <div class="item" py:for='item in user.all_items'>
-      <img src="${tg.url('/images/info.png')}" width="64" height="64" />
-      ${item.label} -- <span py:if="item.owner_id==user.user_id">owned</span>
-      -- <span py:if="item.holder_id==user.user_id">in posession</span>
+   <div id="ItemList">
+      <h1>Your Items</h1>
+      <div class="item" py:for='item in user.all_items'>
+         <img src="${tg.url('/images/info.png')}" width="64" height="64" />
+         ${item.label} -- <span py:if="item.owner_id==user.user_id">owned</span>
+         -- <span py:if="item.holder_id==user.user_id">in posession</span>
+      </div>
+      <br />
+      <a href="/items/add">Add new Item</a>
    </div>
-   <br />
-   <a href="/items/add">Add new Item</a>
 
 </body>
 </html>

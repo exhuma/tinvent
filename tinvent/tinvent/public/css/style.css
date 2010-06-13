@@ -306,3 +306,12 @@ div.item {
    border:1px solid black;
    padding:1em;
 }
+
+#ItemListFilters {
+   float: left;
+   width: 150px;
+}
+
+#ItemList{
+   margin-left: 155px;
+}
