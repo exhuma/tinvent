@@ -1,2 +1,5 @@
 venv
 tinvent/data
+manage.py
+tinvent/development.ini
+
