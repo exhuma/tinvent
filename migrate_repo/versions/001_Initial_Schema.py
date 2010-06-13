@@ -27,6 +27,14 @@ contact = Table( 'contact', meta,
       PrimaryKeyConstraint( 'user_id', 'label' )
 )
 
+picture = Table( 'picture', meta,
+      Column( 'picture_id', Integer, primary_key=True ),
+      Column( 'mime_type', String(24), default="application/octet-stream" ),
+      Column( 'filename', Unicode(255), nullable=False ),
+      Column( 'md5', String(32), default="" ),
+      Column( 'data', Binary, default="" )
+      )
+
 item = Table( 'item', meta,
       Column( 'item_id', Integer, nullable=False, primary_key=True ),
       Column( 'label', Unicode(64) ),
@@ -38,17 +46,19 @@ item = Table( 'item', meta,
          onupdate="CASCADE", ondelete="CASCADE"), nullable=False),
       Column( 'holder_id', Integer, ForeignKey('tg_user.user_id',
          onupdate="CASCADE", ondelete="SET NULL"), nullable=True),
+      Column( 'picture_id', Integer, ForeignKey( 'picture.picture_id',
+         ondelete='CASCADE', onupdate='CASCADE'), default=None )
       )
 
-      #todo# add a picture
-
 def upgrade():
+   picture.create()
    category.create()
-   item.create()
    contact.create()
+   item.create()
 
 def downgrade():
-   contact.drop()
    item.drop()
+   contact.drop()
    category.drop()
+   picture.drop()
 
