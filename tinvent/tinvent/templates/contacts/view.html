@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+                      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:py="http://genshi.edgewall.org/"
+      xmlns:xi="http://www.w3.org/2001/XInclude">
+
+  <xi:include href="../master.html" />
+
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type" py:replace="''"/>
+  <title>tinvent - Your Items</title>
+</head>
+
+<body>
+
+   <h1>Contacts Details</h1>
+   <h2>Items you hold and belong to "${contact.label}"</h2>
+   <div py:for="item in his_items_query">
+      ${item.label}
+   </div>
+
+   <h2>Items "${contact.label}" holds and belong to you</h2>
+   <div py:for="item in your_items_query">
+      ${item.label}
+   </div>
+
+</body>
+</html>
