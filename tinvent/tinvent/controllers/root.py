@@ -12,6 +12,7 @@ from tinvent.controllers.error import ErrorController
 from tinvent import model
 from tinvent.controllers.secure import SecureController
 from tinvent.controllers.items import ItemsController
+from tinvent.controllers.contacts import ContactsController
 
 __all__ = ['RootController']
 
@@ -37,6 +38,7 @@ class RootController(BaseController):
     error = ErrorController()
 
     items = ItemsController()
+    contacts = ContactsController()
 
     @expose('tinvent.templates.index')
     def index(self):

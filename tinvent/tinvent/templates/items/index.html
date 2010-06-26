@@ -14,24 +14,31 @@
 <body>
 
    <div id="ItemListFilters">
-      <fieldset id="CategoryFilter">
-         <legend>Categories</legend>
-         <label py:for="category in categories"><input type="checkbox" />${category.label}<br /></label>
-      </fieldset>
+      <form method="POST" action="/items/index">
+         <fieldset id="CategoryFilter">
+            <legend>Categories</legend>
+            <label py:for="category in categories">
+               <input type="checkbox" name="categories" value="${category.category_id}" />${category.label}<br />
+            </label>
+         </fieldset>
 
-      <fieldset id="StatusFilter">
-         <legend>Status</legend>
-         <label><input type="checkbox" name="status" value="owned" />Owned</label><br />
-         <label><input type="checkbox" name="status" value="in_possession" />In Possession</label>
-      </fieldset>
+         <fieldset id="StatusFilter">
+            <legend>Status</legend>
+            <label><input type="radio" name="status" value="owned" />Owned</label><br />
+            <label><input type="radio" name="status" value="in_possession" />In Possession</label><br />
+            <label><input type="radio" name="status" value="any" checked="checked" />Any</label>
+         </fieldset>
+         <button type="submit" />
+      </form>
    </div>
 
    <div id="ItemList">
       <h1>Your Items</h1>
-      <div class="item" py:for='item in user.all_items'>
-         <img src="${tg.url('/images/info.png')}" width="64" height="64" />
-         ${item.label} -- <span py:if="item.owner_id==user.user_id">owned</span>
-         -- <span py:if="item.holder_id==user.user_id">in posession</span>
+      <div class="item" py:for='item in me_contact.all_items'>
+         <img src="${tg.url('/images/info.png')}" width="64" height="64" valign="top" />
+         <strong>${item.label}</strong>
+         <p py:if="item.owner_id==me_contact.contact_id">owned</p>
+         <p py:if="item.holder_id==me_contact.contact_id">You currently have this item, and it belongs to <a href="${tg.url('/contacts/view', contact_id=item.owner_id)}">${item.owner.label}</a></p>
       </div>
       <br />
       <a href="/items/add">Add new Item</a>

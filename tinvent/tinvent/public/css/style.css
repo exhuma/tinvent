@@ -315,3 +315,7 @@ div.item {
 #ItemList{
    margin-left: 155px;
 }
+
+#ContactList .linked{
+   font-weight: bold;
+}
